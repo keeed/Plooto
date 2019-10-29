@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Plooto.App.Web.Extensions;
+using Plooto.Core.Extensions;
+using Plooto.Repositories.EFCore.Extensions;
 
 namespace Plooto.App.Web
 {
@@ -28,7 +30,10 @@ namespace Plooto.App.Web
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            services.AddSwagger(Configuration);
+            services
+                .AddSwagger(Configuration)
+                .AddInMemoryDatabase()
+                .AddDefaultCoreServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
