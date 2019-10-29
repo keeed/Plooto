@@ -1,0 +1,11 @@
+<a routerLink=''>Go Home</a>
+<br />
+<br />
+<div *ngIf="todo">
+    <strong>Id:</strong>{{todo.id}}<br />
+    <strong>Name:</strong>{{todo.name}}<br />
+    <strong>Completed:</strong>{{todo.completed? 'Y':'N'}}<br />
+
+    <br />
+    <button (click)="delete()">Delete</button>
+</div>

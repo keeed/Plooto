@@ -1,0 +1,5 @@
+<form #createTodoForm="ngForm" [formGroup]="todoForm" (ngSubmit)="onSubmit(createTodoForm)" novalidate>
+    <span>Name*:</span>&nbsp;
+    <input formControlName="name" />
+    <button [disabled]="!todoForm.valid" type="submit">Add</button>
+</form>

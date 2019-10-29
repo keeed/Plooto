@@ -1,0 +1,17 @@
+Todo
+<br />
+<br />
+<app-create-todo></app-create-todo>
+<hr />
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Completed</th>
+    </tr>
+    <tr *ngFor="let todo of todos$ | async">
+        <td><a routerLink="{{todo.id}}">{{todo.id}}</a></td>
+        <td>{{todo.name}}</td>
+        <td><input #completedInput type="checkbox" (change)="updateTodo(todo, completedInput.checked)" [checked]="todo.completed"></td>
+    </tr>
+</table>
