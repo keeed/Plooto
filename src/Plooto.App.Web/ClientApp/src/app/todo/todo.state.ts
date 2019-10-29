@@ -78,7 +78,6 @@ export class TodoState {
             .subscribe({
                 next: (todo) => {
                     const state = ctx.getState();
-                    ctx.dispatch(new GetAllTodos());
                 }
             });
     }
