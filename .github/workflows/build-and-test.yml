@@ -18,11 +18,12 @@ jobs:
           node-version: 12.2.0
       # - name: Build with dotnet
       #   run: dotnet build --configuration Release
-      - name: NPM Install and Angular CLI Install
+      - name: npm Install, Angular CLI Install, and npm Build
         working-directory: ./src/Plooto.App.Web/ClientApp
         run: |
           npm install
           npm install angular-cli
+          npm build
       - name: Build Angular
         working-directory: ./src/Plooto.App.Web/ClientApp
         run: ng build
