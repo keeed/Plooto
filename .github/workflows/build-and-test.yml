@@ -22,7 +22,9 @@ jobs:
         run: dotnet build --configuration Release
       - name: NPM Install and Angular CLI Install
         working-directory: ./src/FiscalGateway.App.WebApi/ClientApp
-        run: npm install | npm install angular-cli
+        run: |
+          npm install
+          npm install angular-cli
       - name: Build Angular
         working-directory: ./src/FiscalGateway.App.WebApi/ClientApp
         run: ng build
