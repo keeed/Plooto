@@ -30,4 +30,4 @@ jobs:
       #   run: dotnet test
       - name: Test Angular
         working-directory: ./src/Plooto.App.Web/ClientApp
-        run: npm run test
+        run: npm run ci-test
