@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoListComponent } from './todo-list.component';
+import { CreateTodoComponent } from '../create-todo/create-todo.component';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { TodoDetailComponent } from '../todo-detail/todo-detail.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxsModule } from '@ngxs/store';
+import { TodoState } from '../todo.state';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
@@ -8,9 +15,21 @@ describe('TodoListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoListComponent ]
+      declarations: [
+        TodoListComponent,
+        CreateTodoComponent,
+        TodoDetailComponent
+      ],
+      imports: [
+        AppRoutingModule,
+        ReactiveFormsModule,
+        NgxsModule.forRoot([
+          TodoState
+        ]),
+        HttpClientModule
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

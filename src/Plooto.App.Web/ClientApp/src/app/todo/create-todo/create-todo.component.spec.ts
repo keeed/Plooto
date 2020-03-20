@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateTodoComponent } from './create-todo.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxsModule } from '@ngxs/store';
+import { TodoState } from '../todo.state';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('CreateTodoComponent', () => {
   let component: CreateTodoComponent;
@@ -8,9 +12,16 @@ describe('CreateTodoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateTodoComponent ]
+      declarations: [CreateTodoComponent],
+      imports: [
+        ReactiveFormsModule,
+        NgxsModule.forRoot([
+          TodoState
+        ]),
+        HttpClientModule
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
