@@ -16,18 +16,18 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.2.0
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      # - name: Build with dotnet
+      #   run: dotnet build --configuration Release
       - name: NPM Install and Angular CLI Install
-        working-directory: .\src\FiscalGateway.App.WebApi\ClientApp
+        working-directory: src/FiscalGateway.App.WebApi/ClientApp
         run: |
           npm install
           npm install angular-cli
       - name: Build Angular
-        working-directory: .\src\FiscalGateway.App.WebApi\ClientApp
+        working-directory: src/FiscalGateway.App.WebApi/ClientApp
         run: ng build
-      - name: Test dotnet
-        run: dotnet test
+      # - name: Test dotnet
+      #   run: dotnet test
       - name: Test Angular
-        working-directory: .\src\FiscalGateway.App.WebApi\ClientApp
+        working-directory: src/FiscalGateway.App.WebApi/ClientApp
         run: ng test
