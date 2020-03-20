@@ -30,4 +30,4 @@ jobs:
       #   run: dotnet test
       - name: Test Angular
         working-directory: ./src/Plooto.App.Web/ClientApp
-        run: ng test
+        run: npm run test
