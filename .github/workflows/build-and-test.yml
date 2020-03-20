@@ -1,19 +1,33 @@
 name: .NET Core
 
-on:
-  pull_request:
-    branches: [ master ]
+on: [pull_request]
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.101
-    - name: Build with dotnet
-      run: dotnet build --configuration Release
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.101
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.2.0
+      # - name: Build with dotnet
+      #   run: dotnet build --configuration Release
+      - name: npm Install, Angular CLI Install, and npm Build
+        working-directory: ./src/Plooto.App.Web/ClientApp
+        run: |
+          npm install
+          npm run build
+      # - name: Build Angular
+      #   working-directory: ./src/Plooto.App.Web/ClientApp
+      #   run: ng build
+      # - name: Test dotnet
+      #   run: dotnet test
+      - name: Test Angular
+        working-directory: ./src/Plooto.App.Web/ClientApp
+        run: npm run ci-test
