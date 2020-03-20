@@ -22,7 +22,6 @@ jobs:
         working-directory: ./src/Plooto.App.Web/ClientApp
         run: |
           npm install
-          npm install angular-cli
           npm run build
       # - name: Build Angular
       #   working-directory: ./src/Plooto.App.Web/ClientApp
